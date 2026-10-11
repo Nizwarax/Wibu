@@ -1,0 +1,6 @@
+#!/bin/bash
+# ws-stunnel is DEPRECATED and removed as of v4.1
+# WebSocket routing now handled directly by HAProxy -> Dropbear
+# No separate ws-stunnel service needed
+echo "ws-stunnel is deprecated. WebSocket now handled by HAProxy -> Dropbear"
+exit 0

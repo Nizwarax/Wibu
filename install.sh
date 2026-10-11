@@ -26,21 +26,22 @@ if [[ "${ID:-}" != "ubuntu" && "${ID:-}" != "debian" ]]; then
     exit 1
 fi
 
-# Clone / update repo wibutunnel-izin (license check)
+# Clone / update repo Wibu (license check)
 echo "[1/3] Cek repo lisensi..."
-if [[ ! -d /root/wibutunnel-izin/.git ]]; then
+if [[ ! -d /root/Wibu/.git ]]; then
     echo "Clone repo lisensi..."
-    git clone https://github.com/WBVPN/wibutunnel-izin.git /root/wibutunnel-izin || {
-        echo "Error: Gagal clone repo wibutunnel-izin. Cek koneksi/akses GitHub."
+    git clone https://github.com/Nizwarax/Wibu.git /root/Wibu || {
+        echo "Error: Gagal clone repo Wibu. Cek koneksi/akses GitHub."
         exit 1
     }
 else
     echo "Update repo lisensi..."
-    cd /root/wibutunnel-izin && git pull --ff-only 2>/dev/null || true
+    cd /root/Wibu && git pull --ff-only 2>/dev/null || true
 fi
 
-if [[ ! -f /root/wibutunnel-izin/izin.txt ]]; then
-    echo "Error: /root/wibutunnel-izin/izin.txt tidak ditemukan setelah clone."
+# Cek file izin.txt di dalam subfolder izin
+if [[ ! -f /root/Wibu/izin/izin.txt ]]; then
+    echo "Error: /root/Wibu/izin/izin.txt tidak ditemukan setelah clone."
     exit 1
 fi
 
